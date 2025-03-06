@@ -16,7 +16,7 @@
 @font-face {
     font-family: "title";
     /*英文字体*/
-    src: url(../fonts/Pacifico-Regular.ttf);
+    src: url(https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/ComicNeue-Bold.ttf);
     font-display: swap;
 }
 
@@ -28,10 +28,10 @@
     transition: background-color 0.2s ease;
 }
 
-a:hover,
-a:link,
-a:visited,
-a:active,
+a:hover，
+a:link，
+a:visited，
+a:active，
 a:focus {
     text-decoration: none;
     outline: none;

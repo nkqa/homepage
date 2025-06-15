@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'PriorityFont';
+    src: url('https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/ChakraPetch-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PriorityFont';
+    src: url('https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/SingleDay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PriorityFont';
+    src: url('https://cdn.jsdmirror.com/gh/nkqa/my-website@main/static/nekofont-Regular.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 寮哄埗鎵€鏈夊厓绱犱娇鐢≒riorityFont锛屼紭鍏堢骇鏈€楂� */
+* {
+    font-family: 'PriorityFont', sans-serif !important;
+}
+
+/* 纭繚浼厓绱犱篃琚鐩� */
+::before, ::after {
+    font-family: 'PriorityFont', sans-serif !important;
+}
+
+/* 澶勭悊杈撳叆妗嗗拰鎸夐挳鐨勫瓧浣� */
+input, textarea, button, select {
+    font-family: 'PriorityFont', sans-serif !important;
+}

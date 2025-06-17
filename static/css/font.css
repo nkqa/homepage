@@ -1,19 +1,5 @@
 @font-face {
     font-family: 'PriorityFont';
-    src: url('https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/ChakraPetch-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'PriorityFont';
-    src: url('https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/SingleDay-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'PriorityFont';
     src: url('https://cdn.jsdmirror.com/gh/azdyqwo/my-website@main/static/nekofont.woff2') format('truetype');
     font-weight: normal;
     font-style: normal;

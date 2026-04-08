@@ -20,9 +20,50 @@ async function getSleepyInfo() {
             const deviceCount = Object.keys(data.device).length;
             let devicesHtml = '';
             
-            // 遍历所有设备
+            // 将设备分为在线和离线两组
+            const onlineDevices = [];
+            const offlineDevices = [];
+            
             for (const deviceId in data.device) {
                 const device = data.device[deviceId];
+                if (device.using) {
+                    onlineDevices.push(device);
+                } else {
+                    offlineDevices.push(device);
+                }
+            }
+            
+            // 先遍历在线设备
+            for (const device of onlineDevices) {
+                const isOnline = device.using;
+                const onlineText = isOnline ? '在线' : '离线';
+                const onlineColor = isOnline ? '#10b981' : '#ef4444';
+                
+                // 转换时间戳
+                const date = new Date(device.last_updated * 1000);
+                const formattedDate = date.toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                // 生成设备HTML
+                devicesHtml += `
+                    <div style="margin-top: 20px; padding: 15px; border-radius: 8px; text-align: left; background-color: rgba(31, 41, 55, 0.8);">
+                        <p style="font-size: 16px; margin-bottom: 5px;">
+                            <span style="color: ${onlineColor}; font-weight: bold;">${onlineText}</span> - ${device.show_name}
+                        </p>
+                        <p style="font-size: 14px; margin-bottom: 5px; color: #9ca3af;">状态: ${device.status}</p>
+                        <p style="font-size: 14px; color: #9ca3af;">最近更新时间: ${formattedDate}</p>
+                    </div>
+                `;
+            }
+            
+            // 再遍历离线设备
+            for (const device of offlineDevices) {
                 const isOnline = device.using;
                 const onlineText = isOnline ? '在线' : '离线';
                 const onlineColor = isOnline ? '#10b981' : '#ef4444';

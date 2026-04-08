@@ -107,6 +107,7 @@ async function getSleepyInfo() {
                     状态: <span style="color: #61dafb;">${data.status.name}</span> (${data.status.desc})
                 </h1>
                 <p style="font-size: 18px; margin-top: 20px; text-align: center;">设备列表（总设备数量: ${deviceCount}）</p>
+                <p style="font-size: 16px; margin-top: 10px; text-align: center;">在线设备数: ${onlineDevices.length}   离线设备数: ${offlineDevices.length}</p>
                 ${devicesHtml}
                 <p style="font-size: 14px; margin-top: 20px; color: #9ca3af; text-align: center;">信息获取时间: ${fetchFormattedDate}</p>
             `;

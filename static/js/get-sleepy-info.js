@@ -103,9 +103,12 @@ async function getSleepyInfo() {
             });
             
             statusDiv.innerHTML = `
-                <h1 style="font-size: 24px; margin-bottom: 10px;">
-                    状态: <span style="color: #61dafb;">${data.status.name}</span> (${data.status.desc})
-                </h1>
+                <div style="position: relative;">
+                    <button onclick="getSleepyInfo(); resetRefreshTimer();" style="position: absolute; top: 0; right: 0; padding: 5px 10px; font-size: 18px; font-weight: bold; background: none; color: #61dafb; border: none; cursor: pointer;">↻</button>
+                    <h1 style="font-size: 24px; margin-bottom: 10px; padding-top: 20px;">
+                        状态: <span style="color: #61dafb;">${data.status.name}</span> (${data.status.desc})
+                    </h1>
+                </div>
                 <p style="font-size: 18px; margin-top: 20px; text-align: center;">设备列表（总设备数量: ${deviceCount}）</p>
                 <p style="font-size: 16px; margin-top: 10px; text-align: center;">在线设备数: ${onlineDevices.length}   离线设备数: ${offlineDevices.length}</p>
                 ${devicesHtml}
@@ -134,5 +137,11 @@ async function getSleepyInfo() {
 // 页面加载完成后获取信息
 window.addEventListener('load', getSleepyInfo);
 
-// 每30秒刷新一次
-setInterval(getSleepyInfo, 30000);
+// 倒计时刷新功能
+let refreshInterval = setInterval(getSleepyInfo, 30000);
+
+// 重置倒计时
+function resetRefreshTimer() {
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(getSleepyInfo, 30000);
+}
